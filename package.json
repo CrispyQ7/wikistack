@@ -1,0 +1,30 @@
+{
+  "name": "wikistack",
+  "version": "1.0.0",
+  "description": "Wikipedia-like system for Fullstack",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Irob466/wikistack.git"
+  },
+  "author": "Ian Roberts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Irob466/wikistack/issues"
+  },
+  "homepage": "https://github.com/Irob466/wikistack#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "html-template-tag": "^3.2.0",
+    "morgan": "^1.9.1",
+    "node-time-ago": "^1.0.0",
+    "pg": "^7.12.1",
+    "sequelize": "^5.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}

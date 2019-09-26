@@ -6,8 +6,9 @@ const { Page } = require('../models');
 
 const slugify = title => title.replace(/\s+/g, '_').replace(/\W/g, '');
 
-router.get("/", (req, res) => {
-  res.send(main());
+router.get("/", async (req, res) => {
+  const allPages = await Page.findAll();
+  res.send(main(allPages));
 })
 
 router.post("/", async (req, res, next) => {

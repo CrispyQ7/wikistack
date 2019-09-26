@@ -13,6 +13,8 @@ then(() => {
   console.log('connected to the database');
 })
 
+
+
 app.use(morgan("dev"));
 app.use(express.static(__dirname + "/public"));
 // app.use('/posts', routes);
@@ -23,6 +25,11 @@ app.get("/", (req, res) => {
 
 const PORT = 3000;
 
-app.listen(PORT, () => {
+const init = async () => {
+  await db.sync({force: true})
+  app.listen(PORT, () => {
   console.log(`App listening in port ${PORT}`);
 });
+}
+
+init();

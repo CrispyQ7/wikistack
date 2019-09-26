@@ -16,7 +16,8 @@ router.post("/", async (req, res, next) => {
   });
 
   try {
-    await page.save();
+    const pageInstance = await page.save();
+    //console.log(pageInstance);
     res.redirect('/');
   } catch (error) { next(error) }
 })
@@ -24,5 +25,15 @@ router.post("/", async (req, res, next) => {
 router.get("/add", (req, res) => {
   res.send(addPage());
 })
+
+router.get('/:slug', async (req, res, next) => {
+  try {
+  const pageInst = await Page.findOne({
+    where: {slug: req.params.slug}
+  })
+  res.json(pageInst)
+} catch (error) { next(error)}
+})
+
 
 module.exports = router;

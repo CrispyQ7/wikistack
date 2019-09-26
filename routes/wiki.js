@@ -3,9 +3,6 @@ const router = express.Router();
 const { main, addPage, editPage, wikiPage } = require("../views");
 const { Page } = require('../models');
 
-
-const slugify = title => title.replace(/\s+/g, '_').replace(/\W/g, '');
-
 router.get("/", async (req, res) => {
   const allPages = await Page.findAll();
   res.send(main(allPages));

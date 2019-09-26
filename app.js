@@ -1,6 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
-const main = require("./views/main");
+// const main = require("./views/main");
+// const userRouter = require("./routes/user");
+const wikiRouter = require("./routes/wiki");
 const { db } = require('./models');
 // const routes = require('./routes/posts');
 
@@ -17,10 +19,11 @@ then(() => {
 
 app.use(morgan("dev"));
 app.use(express.static(__dirname + "/public"));
-// app.use('/posts', routes);
+app.use('/wiki', wikiRouter);
+// app.use('/user', userRouter);
 
 app.get("/", (req, res) => {
-  res.send(main(''));
+  res.redirect("/wiki")
 })
 
 const PORT = 3000;
